@@ -1,0 +1,587 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <link rel="stylesheet" href="css/leaflet.css"><link rel="stylesheet" href="css/L.Control.Locate.min.css">
+        <link rel="stylesheet" href="css/qgis2web.css"><link rel="stylesheet" href="css/fontawesome-all.min.css">
+        <link rel="stylesheet" href="css/leaflet-control-geocoder.Geocoder.css">
+        <link rel="stylesheet" href="css/leaflet-measure.css">
+        <style>
+        html, body, #map {
+            width: 100%;
+            height: 100%;
+            padding: 0;
+            margin: 0;
+        }
+        </style>
+        <title></title>
+    </head>
+    <body>
+        <div id="map">
+        </div>
+        <script src="js/qgis2web_expressions.js"></script>
+        <script src="js/leaflet.js"></script><script src="js/L.Control.Locate.min.js"></script>
+        <script src="js/leaflet.rotatedMarker.js"></script>
+        <script src="js/leaflet.pattern.js"></script>
+        <script src="js/leaflet-hash.js"></script>
+        <script src="js/Autolinker.min.js"></script>
+        <script src="js/rbush.min.js"></script>
+        <script src="js/labelgun.min.js"></script>
+        <script src="js/labels.js"></script>
+        <script src="js/leaflet-control-geocoder.Geocoder.js"></script>
+        <script src="js/leaflet-measure.js"></script>
+        <script src="data/ZONAS_METROPOLITANAS_Ags_0.js"></script>
+        <script src="data/LOCALIDADES_Ags_1.js"></script>
+        <script src="data/CONSTRUCCIONES_Ags_2.js"></script>
+        <script src="data/AREAS_COMPLEMETARIAS_Ags_3.js"></script>
+        <script src="data/AREA_NATURAL_Clip_Ags_4.js"></script>
+        <script src="data/CUERPO_DE_AGUA_Ags_5.js"></script>
+        <script src="data/MANZANAS_Ags_6.js"></script>
+        <script src="data/VEREDAS_Ags_7.js"></script>
+        <script src="data/BRECHAS_Ags_8.js"></script>
+        <script src="data/RED_NACIONAL_DE_CAMINOS_Ags_9.js"></script>
+        <script src="data/LOCALIDAD_RURAL_Ags_10.js"></script>
+        <script src="data/MUNICIPIOS_Ags_11.js"></script>
+        <script src="data/Estado_Ags_Ags_12.js"></script>
+        <script src="data/ESTADOS_14.js"></script>
+        <script>
+        var map = L.map('map', {
+            zoomControl:true, maxZoom:28, minZoom:1
+        }).fitBounds([[21.436862575569936,-103.04788427830572],[22.618851836328844,-100.77247998144229]]);
+        var hash = new L.Hash(map);
+        map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
+        var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
+        L.control.locate({locateOptions: {maxZoom: 19}}).addTo(map);
+        var measureControl = new L.Control.Measure({
+            position: 'topleft',
+            primaryLengthUnit: 'meters',
+            secondaryLengthUnit: 'kilometers',
+            primaryAreaUnit: 'sqmeters',
+            secondaryAreaUnit: 'hectares'
+        });
+        measureControl.addTo(map);
+        document.getElementsByClassName('leaflet-control-measure-toggle')[0]
+        .innerHTML = '';
+        document.getElementsByClassName('leaflet-control-measure-toggle')[0]
+        .className += ' fas fa-ruler';
+        var bounds_group = new L.featureGroup([]);
+        function setBounds() {
+        }
+        function pop_ZONAS_METROPOLITANAS_Ags_0(feature, layer) {
+        }
+
+        function style_ZONAS_METROPOLITANAS_Ags_0_0() {
+            return {
+                pane: 'pane_ZONAS_METROPOLITANAS_Ags_0',
+                opacity: 1,
+                color: 'rgba(35,35,35,0.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,254,203,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_ZONAS_METROPOLITANAS_Ags_0');
+        map.getPane('pane_ZONAS_METROPOLITANAS_Ags_0').style.zIndex = 400;
+        map.getPane('pane_ZONAS_METROPOLITANAS_Ags_0').style['mix-blend-mode'] = 'normal';
+        var layer_ZONAS_METROPOLITANAS_Ags_0 = new L.geoJson(json_ZONAS_METROPOLITANAS_Ags_0, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_ZONAS_METROPOLITANAS_Ags_0',
+            layerName: 'layer_ZONAS_METROPOLITANAS_Ags_0',
+            pane: 'pane_ZONAS_METROPOLITANAS_Ags_0',
+            onEachFeature: pop_ZONAS_METROPOLITANAS_Ags_0,
+            style: style_ZONAS_METROPOLITANAS_Ags_0_0,
+        });
+        bounds_group.addLayer(layer_ZONAS_METROPOLITANAS_Ags_0);
+        map.addLayer(layer_ZONAS_METROPOLITANAS_Ags_0);
+        function pop_LOCALIDADES_Ags_1(feature, layer) {
+        }
+
+        function style_LOCALIDADES_Ags_1_0() {
+            return {
+                pane: 'pane_LOCALIDADES_Ags_1',
+                opacity: 1,
+                color: 'rgba(36,84,104,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(142,171,187,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_LOCALIDADES_Ags_1');
+        map.getPane('pane_LOCALIDADES_Ags_1').style.zIndex = 401;
+        map.getPane('pane_LOCALIDADES_Ags_1').style['mix-blend-mode'] = 'normal';
+        var layer_LOCALIDADES_Ags_1 = new L.geoJson(json_LOCALIDADES_Ags_1, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_LOCALIDADES_Ags_1',
+            layerName: 'layer_LOCALIDADES_Ags_1',
+            pane: 'pane_LOCALIDADES_Ags_1',
+            onEachFeature: pop_LOCALIDADES_Ags_1,
+            style: style_LOCALIDADES_Ags_1_0,
+        });
+        bounds_group.addLayer(layer_LOCALIDADES_Ags_1);
+        map.addLayer(layer_LOCALIDADES_Ags_1);
+        function pop_CONSTRUCCIONES_Ags_2(feature, layer) {
+        }
+
+        function style_CONSTRUCCIONES_Ags_2_0() {
+            return {
+                pane: 'pane_CONSTRUCCIONES_Ags_2',
+                opacity: 1,
+                color: 'rgba(99,95,95,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(197,191,189,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_CONSTRUCCIONES_Ags_2');
+        map.getPane('pane_CONSTRUCCIONES_Ags_2').style.zIndex = 402;
+        map.getPane('pane_CONSTRUCCIONES_Ags_2').style['mix-blend-mode'] = 'normal';
+        var layer_CONSTRUCCIONES_Ags_2 = new L.geoJson(json_CONSTRUCCIONES_Ags_2, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_CONSTRUCCIONES_Ags_2',
+            layerName: 'layer_CONSTRUCCIONES_Ags_2',
+            pane: 'pane_CONSTRUCCIONES_Ags_2',
+            onEachFeature: pop_CONSTRUCCIONES_Ags_2,
+            style: style_CONSTRUCCIONES_Ags_2_0,
+        });
+        bounds_group.addLayer(layer_CONSTRUCCIONES_Ags_2);
+        map.addLayer(layer_CONSTRUCCIONES_Ags_2);
+        function pop_AREAS_COMPLEMETARIAS_Ags_3(feature, layer) {
+        }
+
+        function style_AREAS_COMPLEMETARIAS_Ags_3_0() {
+            return {
+                pane: 'pane_AREAS_COMPLEMETARIAS_Ags_3',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(215,133,248,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_AREAS_COMPLEMETARIAS_Ags_3');
+        map.getPane('pane_AREAS_COMPLEMETARIAS_Ags_3').style.zIndex = 403;
+        map.getPane('pane_AREAS_COMPLEMETARIAS_Ags_3').style['mix-blend-mode'] = 'normal';
+        var layer_AREAS_COMPLEMETARIAS_Ags_3 = new L.geoJson(json_AREAS_COMPLEMETARIAS_Ags_3, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_AREAS_COMPLEMETARIAS_Ags_3',
+            layerName: 'layer_AREAS_COMPLEMETARIAS_Ags_3',
+            pane: 'pane_AREAS_COMPLEMETARIAS_Ags_3',
+            onEachFeature: pop_AREAS_COMPLEMETARIAS_Ags_3,
+            style: style_AREAS_COMPLEMETARIAS_Ags_3_0,
+        });
+        bounds_group.addLayer(layer_AREAS_COMPLEMETARIAS_Ags_3);
+        map.addLayer(layer_AREAS_COMPLEMETARIAS_Ags_3);
+        function pop_AREA_NATURAL_Clip_Ags_4(feature, layer) {
+        }
+
+        function style_AREA_NATURAL_Clip_Ags_4_0() {
+            return {
+                pane: 'pane_AREA_NATURAL_Clip_Ags_4',
+                opacity: 1,
+                color: 'rgba(44,131,89,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(57,196,124,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_AREA_NATURAL_Clip_Ags_4');
+        map.getPane('pane_AREA_NATURAL_Clip_Ags_4').style.zIndex = 404;
+        map.getPane('pane_AREA_NATURAL_Clip_Ags_4').style['mix-blend-mode'] = 'normal';
+        var layer_AREA_NATURAL_Clip_Ags_4 = new L.geoJson(json_AREA_NATURAL_Clip_Ags_4, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_AREA_NATURAL_Clip_Ags_4',
+            layerName: 'layer_AREA_NATURAL_Clip_Ags_4',
+            pane: 'pane_AREA_NATURAL_Clip_Ags_4',
+            onEachFeature: pop_AREA_NATURAL_Clip_Ags_4,
+            style: style_AREA_NATURAL_Clip_Ags_4_0,
+        });
+        bounds_group.addLayer(layer_AREA_NATURAL_Clip_Ags_4);
+        map.addLayer(layer_AREA_NATURAL_Clip_Ags_4);
+        function pop_CUERPO_DE_AGUA_Ags_5(feature, layer) {
+        }
+
+        function style_CUERPO_DE_AGUA_Ags_5_0() {
+            return {
+                pane: 'pane_CUERPO_DE_AGUA_Ags_5',
+                opacity: 1,
+                color: 'rgba(46,150,147,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(111,234,243,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_CUERPO_DE_AGUA_Ags_5');
+        map.getPane('pane_CUERPO_DE_AGUA_Ags_5').style.zIndex = 405;
+        map.getPane('pane_CUERPO_DE_AGUA_Ags_5').style['mix-blend-mode'] = 'normal';
+        var layer_CUERPO_DE_AGUA_Ags_5 = new L.geoJson(json_CUERPO_DE_AGUA_Ags_5, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_CUERPO_DE_AGUA_Ags_5',
+            layerName: 'layer_CUERPO_DE_AGUA_Ags_5',
+            pane: 'pane_CUERPO_DE_AGUA_Ags_5',
+            onEachFeature: pop_CUERPO_DE_AGUA_Ags_5,
+            style: style_CUERPO_DE_AGUA_Ags_5_0,
+        });
+        bounds_group.addLayer(layer_CUERPO_DE_AGUA_Ags_5);
+        map.addLayer(layer_CUERPO_DE_AGUA_Ags_5);
+        function pop_MANZANAS_Ags_6(feature, layer) {
+        }
+
+        function style_MANZANAS_Ags_6_0() {
+            return {
+                pane: 'pane_MANZANAS_Ags_6',
+                opacity: 1,
+                color: 'rgba(247,77,80,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(243,166,178,0.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_MANZANAS_Ags_6');
+        map.getPane('pane_MANZANAS_Ags_6').style.zIndex = 406;
+        map.getPane('pane_MANZANAS_Ags_6').style['mix-blend-mode'] = 'normal';
+        var layer_MANZANAS_Ags_6 = new L.geoJson(json_MANZANAS_Ags_6, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_MANZANAS_Ags_6',
+            layerName: 'layer_MANZANAS_Ags_6',
+            pane: 'pane_MANZANAS_Ags_6',
+            onEachFeature: pop_MANZANAS_Ags_6,
+            style: style_MANZANAS_Ags_6_0,
+        });
+        bounds_group.addLayer(layer_MANZANAS_Ags_6);
+        map.addLayer(layer_MANZANAS_Ags_6);
+        function pop_VEREDAS_Ags_7(feature, layer) {
+        }
+
+        function style_VEREDAS_Ags_7_0() {
+            return {
+                pane: 'pane_VEREDAS_Ags_7',
+                opacity: 1,
+                color: 'rgba(16,138,40,1.0)',
+                dashArray: '',
+                lineCap: 'round',
+                lineJoin: 'round',
+                weight: 1.0,
+                fillOpacity: 0,
+                interactive: true,
+            }
+        }
+        map.createPane('pane_VEREDAS_Ags_7');
+        map.getPane('pane_VEREDAS_Ags_7').style.zIndex = 407;
+        map.getPane('pane_VEREDAS_Ags_7').style['mix-blend-mode'] = 'normal';
+        var layer_VEREDAS_Ags_7 = new L.geoJson(json_VEREDAS_Ags_7, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_VEREDAS_Ags_7',
+            layerName: 'layer_VEREDAS_Ags_7',
+            pane: 'pane_VEREDAS_Ags_7',
+            onEachFeature: pop_VEREDAS_Ags_7,
+            style: style_VEREDAS_Ags_7_0,
+        });
+        bounds_group.addLayer(layer_VEREDAS_Ags_7);
+        map.addLayer(layer_VEREDAS_Ags_7);
+        function pop_BRECHAS_Ags_8(feature, layer) {
+        }
+
+        function style_BRECHAS_Ags_8_0() {
+            return {
+                pane: 'pane_BRECHAS_Ags_8',
+                opacity: 1,
+                color: 'rgba(219,216,9,1.0)',
+                dashArray: '',
+                lineCap: 'round',
+                lineJoin: 'round',
+                weight: 1.0,
+                fillOpacity: 0,
+                interactive: true,
+            }
+        }
+        map.createPane('pane_BRECHAS_Ags_8');
+        map.getPane('pane_BRECHAS_Ags_8').style.zIndex = 408;
+        map.getPane('pane_BRECHAS_Ags_8').style['mix-blend-mode'] = 'normal';
+        var layer_BRECHAS_Ags_8 = new L.geoJson(json_BRECHAS_Ags_8, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_BRECHAS_Ags_8',
+            layerName: 'layer_BRECHAS_Ags_8',
+            pane: 'pane_BRECHAS_Ags_8',
+            onEachFeature: pop_BRECHAS_Ags_8,
+            style: style_BRECHAS_Ags_8_0,
+        });
+        bounds_group.addLayer(layer_BRECHAS_Ags_8);
+        map.addLayer(layer_BRECHAS_Ags_8);
+        function pop_RED_NACIONAL_DE_CAMINOS_Ags_9(feature, layer) {
+        }
+
+        function style_RED_NACIONAL_DE_CAMINOS_Ags_9_0() {
+            return {
+                pane: 'pane_RED_NACIONAL_DE_CAMINOS_Ags_9',
+                opacity: 1,
+                color: 'rgba(15,24,27,1.0)',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 1,
+                fillOpacity: 0,
+                interactive: true,
+            }
+        }
+        map.createPane('pane_RED_NACIONAL_DE_CAMINOS_Ags_9');
+        map.getPane('pane_RED_NACIONAL_DE_CAMINOS_Ags_9').style.zIndex = 409;
+        map.getPane('pane_RED_NACIONAL_DE_CAMINOS_Ags_9').style['mix-blend-mode'] = 'normal';
+        var layer_RED_NACIONAL_DE_CAMINOS_Ags_9 = new L.geoJson(json_RED_NACIONAL_DE_CAMINOS_Ags_9, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_RED_NACIONAL_DE_CAMINOS_Ags_9',
+            layerName: 'layer_RED_NACIONAL_DE_CAMINOS_Ags_9',
+            pane: 'pane_RED_NACIONAL_DE_CAMINOS_Ags_9',
+            onEachFeature: pop_RED_NACIONAL_DE_CAMINOS_Ags_9,
+            style: style_RED_NACIONAL_DE_CAMINOS_Ags_9_0,
+        });
+        bounds_group.addLayer(layer_RED_NACIONAL_DE_CAMINOS_Ags_9);
+        map.addLayer(layer_RED_NACIONAL_DE_CAMINOS_Ags_9);
+        function pop_LOCALIDAD_RURAL_Ags_10(feature, layer) {
+        }
+
+        function style_LOCALIDAD_RURAL_Ags_10_0() {
+            return {
+                pane: 'pane_LOCALIDAD_RURAL_Ags_10',
+                radius: 2.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(29,178,88,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_LOCALIDAD_RURAL_Ags_10');
+        map.getPane('pane_LOCALIDAD_RURAL_Ags_10').style.zIndex = 410;
+        map.getPane('pane_LOCALIDAD_RURAL_Ags_10').style['mix-blend-mode'] = 'normal';
+        var layer_LOCALIDAD_RURAL_Ags_10 = new L.geoJson(json_LOCALIDAD_RURAL_Ags_10, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_LOCALIDAD_RURAL_Ags_10',
+            layerName: 'layer_LOCALIDAD_RURAL_Ags_10',
+            pane: 'pane_LOCALIDAD_RURAL_Ags_10',
+            onEachFeature: pop_LOCALIDAD_RURAL_Ags_10,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_LOCALIDAD_RURAL_Ags_10_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_LOCALIDAD_RURAL_Ags_10);
+        map.addLayer(layer_LOCALIDAD_RURAL_Ags_10);
+        function pop_MUNICIPIOS_Ags_11(feature, layer) {
+        }
+
+        function style_MUNICIPIOS_Ags_11_0() {
+            return {
+                pane: 'pane_MUNICIPIOS_Ags_11',
+                opacity: 1,
+                color: 'rgba(255,127,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 0,
+                interactive: true,
+            }
+        }
+        map.createPane('pane_MUNICIPIOS_Ags_11');
+        map.getPane('pane_MUNICIPIOS_Ags_11').style.zIndex = 411;
+        map.getPane('pane_MUNICIPIOS_Ags_11').style['mix-blend-mode'] = 'normal';
+        var layer_MUNICIPIOS_Ags_11 = new L.geoJson(json_MUNICIPIOS_Ags_11, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_MUNICIPIOS_Ags_11',
+            layerName: 'layer_MUNICIPIOS_Ags_11',
+            pane: 'pane_MUNICIPIOS_Ags_11',
+            onEachFeature: pop_MUNICIPIOS_Ags_11,
+            style: style_MUNICIPIOS_Ags_11_0,
+        });
+        bounds_group.addLayer(layer_MUNICIPIOS_Ags_11);
+        map.addLayer(layer_MUNICIPIOS_Ags_11);
+        function pop_Estado_Ags_Ags_12(feature, layer) {
+        }
+
+        function style_Estado_Ags_Ags_12_0() {
+            return {
+                pane: 'pane_Estado_Ags_Ags_12',
+                opacity: 1,
+                color: 'rgba(117,23,27,1.0)',
+                dashArray: '10,5,1,5,1,5',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 2.0,
+                fillOpacity: 0,
+                interactive: true,
+            }
+        }
+        map.createPane('pane_Estado_Ags_Ags_12');
+        map.getPane('pane_Estado_Ags_Ags_12').style.zIndex = 412;
+        map.getPane('pane_Estado_Ags_Ags_12').style['mix-blend-mode'] = 'normal';
+        var layer_Estado_Ags_Ags_12 = new L.geoJson(json_Estado_Ags_Ags_12, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_Estado_Ags_Ags_12',
+            layerName: 'layer_Estado_Ags_Ags_12',
+            pane: 'pane_Estado_Ags_Ags_12',
+            onEachFeature: pop_Estado_Ags_Ags_12,
+            style: style_Estado_Ags_Ags_12_0,
+        });
+        bounds_group.addLayer(layer_Estado_Ags_Ags_12);
+        map.addLayer(layer_Estado_Ags_Ags_12);
+        map.createPane('pane_GoogleLabels_13');
+        map.getPane('pane_GoogleLabels_13').style.zIndex = 413;
+        var layer_GoogleLabels_13 = L.tileLayer('https://mt1.google.com/vt/lyrs=h&x={x}&y={y}&z={z}', {
+            pane: 'pane_GoogleLabels_13',
+            opacity: 0.707,
+            attribution: '<a href="https://www.google.at/permissions/geoguidelines/attr-guide.html">Map data ©2015 Google</a>',
+            minZoom: 1,
+            maxZoom: 28,
+            minNativeZoom: 0,
+            maxNativeZoom: 20
+        });
+        layer_GoogleLabels_13;
+        map.addLayer(layer_GoogleLabels_13);
+        function pop_ESTADOS_14(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['CVE_GEO'] !== null ? autolinker.link(feature.properties['CVE_GEO'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['CVE_ENT'] !== null ? autolinker.link(feature.properties['CVE_ENT'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['NOM_ENT'] !== null ? autolinker.link(feature.properties['NOM_ENT'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['X'] !== null ? autolinker.link(feature.properties['X'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Y'] !== null ? autolinker.link(feature.properties['Y'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_ESTADOS_14_0() {
+            return {
+                pane: 'pane_ESTADOS_14',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(190,207,80,0.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_ESTADOS_14');
+        map.getPane('pane_ESTADOS_14').style.zIndex = 414;
+        map.getPane('pane_ESTADOS_14').style['mix-blend-mode'] = 'normal';
+        var layer_ESTADOS_14 = new L.geoJson(json_ESTADOS_14, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_ESTADOS_14',
+            layerName: 'layer_ESTADOS_14',
+            pane: 'pane_ESTADOS_14',
+            onEachFeature: pop_ESTADOS_14,
+            style: style_ESTADOS_14_0,
+        });
+        bounds_group.addLayer(layer_ESTADOS_14);
+        map.addLayer(layer_ESTADOS_14);
+        map.on("zoomend", function(e) {
+            if (map.getZoom() <= 19 && map.getZoom() >= 12) {
+                map.addLayer(layer_GoogleLabels_13);
+            } else if (map.getZoom() > 19 || map.getZoom() < 12) {
+                map.removeLayer(layer_GoogleLabels_13);
+            }
+        });
+            if (map.getZoom() <= 19 && map.getZoom() >= 12) {
+                map.addLayer(layer_GoogleLabels_13);
+            } else if (map.getZoom() > 19 || map.getZoom() < 12) {
+                map.removeLayer(layer_GoogleLabels_13);
+            }
+        var osmGeocoder = new L.Control.Geocoder({
+            collapsed: true,
+            position: 'topleft',
+            text: 'Search',
+            title: 'Testing'
+        }).addTo(map);
+        document.getElementsByClassName('leaflet-control-geocoder-icon')[0]
+        .className += ' fa fa-search';
+        document.getElementsByClassName('leaflet-control-geocoder-icon')[0]
+        .title += 'Search for a place';
+        var baseMaps = {};
+        L.control.layers(baseMaps,{'<img src="legend/ESTADOS_14.png" /> ESTADOS': layer_ESTADOS_14,"Google Labels": layer_GoogleLabels_13,'<img src="legend/Estado_Ags_Ags_12.png" /> Estado_Ags_Ags': layer_Estado_Ags_Ags_12,'<img src="legend/MUNICIPIOS_Ags_11.png" /> MUNICIPIOS_Ags': layer_MUNICIPIOS_Ags_11,'<img src="legend/LOCALIDAD_RURAL_Ags_10.png" /> LOCALIDAD_RURAL_Ags': layer_LOCALIDAD_RURAL_Ags_10,'<img src="legend/RED_NACIONAL_DE_CAMINOS_Ags_9.png" /> RED_NACIONAL_DE_CAMINOS_Ags': layer_RED_NACIONAL_DE_CAMINOS_Ags_9,'<img src="legend/BRECHAS_Ags_8.png" /> BRECHAS_Ags': layer_BRECHAS_Ags_8,'<img src="legend/VEREDAS_Ags_7.png" /> VEREDAS_Ags': layer_VEREDAS_Ags_7,'<img src="legend/MANZANAS_Ags_6.png" /> MANZANAS_Ags': layer_MANZANAS_Ags_6,'<img src="legend/CUERPO_DE_AGUA_Ags_5.png" /> CUERPO_DE_AGUA_Ags': layer_CUERPO_DE_AGUA_Ags_5,'<img src="legend/AREA_NATURAL_Clip_Ags_4.png" /> AREA_NATURAL_Clip_Ags': layer_AREA_NATURAL_Clip_Ags_4,'<img src="legend/AREAS_COMPLEMETARIAS_Ags_3.png" /> AREAS_COMPLEMETARIAS_Ags': layer_AREAS_COMPLEMETARIAS_Ags_3,'<img src="legend/CONSTRUCCIONES_Ags_2.png" /> CONSTRUCCIONES_Ags': layer_CONSTRUCCIONES_Ags_2,'<img src="legend/LOCALIDADES_Ags_1.png" /> LOCALIDADES_Ags': layer_LOCALIDADES_Ags_1,'<img src="legend/ZONAS_METROPOLITANAS_Ags_0.png" /> ZONAS_METROPOLITANAS_Ags': layer_ZONAS_METROPOLITANAS_Ags_0,}).addTo(map);
+        setBounds();
+        resetLabels([layer_MUNICIPIOS_Ags_11]);
+        map.on("zoomend", function(){
+            resetLabels([layer_MUNICIPIOS_Ags_11]);
+        });
+        map.on("layeradd", function(){
+            resetLabels([layer_MUNICIPIOS_Ags_11]);
+        });
+        map.on("layerremove", function(){
+            resetLabels([layer_MUNICIPIOS_Ags_11]);
+        });
+        </script>
+    </body>
+</html>
